@@ -8,6 +8,7 @@ var addBtnInput = document.getElementById("addBtn");
 var updateBtnInput = document.getElementById("updateBtn");
 var searchInput = document.getElementById("search");
 var currentIndex = 0;
+var foundName = document.querySelector('.foundName')
 
 var productList = [];
 if(localStorage.getItem("productList") != null){
@@ -16,18 +17,27 @@ if(localStorage.getItem("productList") != null){
 }
 
 function addProduct(){
-    if(nameValid() && priceValid() == true){
-        var product = {
-            name : productNameInput.value,
-            price : Number(productPriceInput.value),
-            image : productImageInput.files[0].name,
-            sale : productSaleInput.checked,
-            desc : productDescInput.value,
-            category : productCategoryInput.value,
+    let nameList = productList.filter((el)=>{
+        return el.name == productNameInput.value;
+    })
+    if(nameList.length == 0){
+        if(nameValid() && priceValid() == true){
+            var product = {
+                name : productNameInput.value,
+                price : Number(productPriceInput.value),
+                image : productImageInput.files[0].name,
+                sale : productSaleInput.checked,
+                desc : productDescInput.value,
+                category : productCategoryInput.value,
+            }
+            productList.push(product);
+            localStorage.setItem("productList", JSON.stringify(productList));
+            displayProduct();
+            clearForm();
         }
-        productList.push(product);
-        localStorage.setItem("productList", JSON.stringify(productList));
-        displayProduct();
+    }
+    else{
+        foundName.classList.remove('d-none');
     }
 }
 
@@ -89,6 +99,10 @@ function clearForm(){
     productSaleInput.checked = "";
     productDescInput.value = "";
     productCategoryInput.value = "";
+    productNameInput.classList.remove("is-invalid");
+    productNameInput.classList.remove("is-valid");
+    productPriceInput.classList.remove("is-invalid");
+    productPriceInput.classList.remove("is-valid");
 }
 
 function search(){

@@ -21,6 +21,7 @@
                 <label for="productName">Product Name</label>
                 <input type="text" class="form-control" name="" id="productName">
                 <p class="name alert alert-danger my-2 d-none">Invalid Name</p>
+                <p class="foundName alert alert-danger my-2 d-none">this name already exists</p>
             </div>
             <div class="mb-3">
                 <label for="productPrice">Product Price</label>
@@ -55,7 +56,7 @@
         </form>
 
         <input onkeyup="search()" id="search" type="text" class="w-50 my-5 mx-auto form-control" placeholder="search..." name="">
-        <i class="icon fa-solid fa-arrow-up-short-wide ms-auto bg-info text-white"></i>
+        <i class="mb-4 icon fa-solid fa-arrow-up-short-wide ms-auto bg-info text-white"></i>
 
         <div class="row g-3" id="myRow">
         </div>
