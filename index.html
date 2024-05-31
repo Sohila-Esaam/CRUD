@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+    <div class="container py-5">
+
+        <form>
+
+            <div class="mb-3">
+                <label for="productName">Product Name</label>
+                <input type="text" class="form-control" name="" id="productName">
+                <p class="name alert alert-danger my-2 d-none">Invalid Name</p>
+            </div>
+            <div class="mb-3">
+                <label for="productPrice">Product Price</label>
+                <input type="number" class="form-control" name="" id="productPrice">
+                <p class="price alert alert-danger my-2 d-none">Invalid Price</p>
+            </div>
+            <div class="mb-3">
+                <label for="productImage">Product Image</label>
+                <input type="file" class="form-control" name="" id="productImage">
+            </div>
+            <div class="mb-3">
+                <label for="productCategory">Product Category</label>
+                <select class="form-select" id="productCategory">
+                    <option value="mobile">Mobile</option>
+                    <option value="tv">Tv</option>
+                    <option value="laptop">laptop</option>
+                </select>
+
+            </div>
+            <div class="form-check form-switch mb-3">
+                <input class="form-check-input"  type="checkbox" role="switch" id="productSale">
+                <label class="form-check-label" for="productSale">product Sale</label>
+            </div>
+            <div class="mb-3">
+                <label for="productDescription">Product Description</label>
+                <textarea class="form-control" name="" id="productDescription"></textarea>
+                <p class="desc alert alert-danger my-2 d-none">Invalid Description</p>
+            </div>
+            <button id="addBtn" onclick="addProduct()" type="button" class="btn btn-outline-info">Add Product</button>
+            <button onclick="updateProduct()" id="updateBtn" type="button" class="btn btn-outline-info d-none">Update Product</button>
+            <button type="button" class="btn btn-outline-danger" onclick="clearForm()">Clear Form</button>
+        </form>
+
+        <input onkeyup="search()" id="search" type="text" class="w-50 my-5 mx-auto form-control" placeholder="search..." name="">
+        <i class="icon fa-solid fa-arrow-up-short-wide ms-auto bg-info text-white"></i>
+
+        <div class="row g-3" id="myRow">
+        </div>
+    </div>
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

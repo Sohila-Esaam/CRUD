@@ -1,0 +1,10 @@
+.fa-solid{
+    width: 30px;
+    height: 30px;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
