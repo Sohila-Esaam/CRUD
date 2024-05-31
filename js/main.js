@@ -21,7 +21,7 @@ function addProduct(){
         return el.name == productNameInput.value;
     })
     if(nameList.length == 0){
-        if(nameValid() && priceValid() == true){
+        if(priceValid() == true){
             var product = {
                 name : productNameInput.value,
                 price : Number(productPriceInput.value),
@@ -98,7 +98,7 @@ function clearForm(){
     productImageInput.value = "";
     productSaleInput.checked = "";
     productDescInput.value = "";
-    productCategoryInput.value = "";
+    // productCategoryInput.value = "";
     productNameInput.classList.remove("is-invalid");
     productNameInput.classList.remove("is-valid");
     productPriceInput.classList.remove("is-invalid");
@@ -136,7 +136,7 @@ function search(){
 productNameInput.addEventListener("change", nameValid)
 
 function nameValid(){
-    regexName = /^[A-Z][a-z]+[0-9]{0,5}$/;
+    regexName = /^[a-z]+[0-9]{0,5}$/;
    if(regexName.test(productNameInput.value))
     {
         productNameInput.classList.add("is-valid");
